@@ -51,7 +51,7 @@ class HashcatCmd:
         self.hashcat_args = hashcat_args
 
     def build(self) -> List[str]:
-        command = ["hashcat", f"-m{self.mode}", *self.hashcat_args]
+        command = ["hashcat", "-d 2", f"-m{self.mode}", *self.hashcat_args]
         for rule in self.rules:
             if rule is not None:
                 rule_path = str(rule.path)
